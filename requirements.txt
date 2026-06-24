@@ -17,7 +17,7 @@ cryptography>=41.0        # rsa_encrypt_decrypt.py  (2048-bit OAEP RSA; hard dep
 
 # --- AES S-box analysis & ECB visualisation ----------------------------------
 numpy>=1.26               # aes_ecb_pattern_leak.py
-scipy>=1.11               # aes_sbox_analysis.py    (chi-square uniformity test)
+scipy>=1.15.3               # aes_sbox_analysis.py    (chi-square uniformity test)
 matplotlib>=3.8           # aes_ecb_pattern_leak.py (writes ecb_pattern.png)
 
 # --- Caesar ML experiments ---------------------------------------------------
