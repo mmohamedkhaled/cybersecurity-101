@@ -16,7 +16,7 @@ pycryptodome>=3.23.0        # aes_cbc.py, aes_ecb.py, aes_ecb_pattern_leak.py, a
 cryptography>=41.0        # rsa_encrypt_decrypt.py  (2048-bit OAEP RSA; hard dep for that file)
 
 # --- AES S-box analysis & ECB visualisation ----------------------------------
-numpy>=1.26               # aes_ecb_pattern_leak.py
+numpy>=2.2.6               # aes_ecb_pattern_leak.py
 scipy>=1.15.3               # aes_sbox_analysis.py    (chi-square uniformity test)
 matplotlib>=3.8           # aes_ecb_pattern_leak.py (writes ecb_pattern.png)
 
