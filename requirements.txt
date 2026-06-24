@@ -13,7 +13,7 @@
 
 # --- AES examples ------------------------------------------------------------
 pycryptodome>=3.23.0        # aes_cbc.py, aes_ecb.py, aes_ecb_pattern_leak.py, aes_inverse_steps.py (demo)
-cryptography>=41.0        # rsa_encrypt_decrypt.py  (2048-bit OAEP RSA; hard dep for that file)
+cryptography>=49.0.0        # rsa_encrypt_decrypt.py  (2048-bit OAEP RSA; hard dep for that file)
 
 # --- AES S-box analysis & ECB visualisation ----------------------------------
 numpy>=1.26               # aes_ecb_pattern_leak.py
