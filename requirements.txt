@@ -1,0 +1,28 @@
+# Cybersecurity 101 — runtime dependencies
+#
+# Python 3.10+ required (uses PEP 604 `X | Y` annotations). Tested on 3.12.
+#
+# 27 of the 36 scripts run on the standard library alone. The other 9 use an
+# optional third-party package and degrade gracefully when it is missing — they
+# print a "... skipped (missing dependency: X)" line and exit 0 — EXCEPT
+# `rsa_encrypt_decrypt.py`, which imports `cryptography` at module level and
+# therefore needs it installed to run.
+#
+# Install everything:    pip install -r requirements.txt
+# Install selectively:   pip install pycryptodome cryptography
+
+# --- AES examples ------------------------------------------------------------
+pycryptodome>=3.20        # aes_cbc.py, aes_ecb.py, aes_ecb_pattern_leak.py, aes_inverse_steps.py (demo)
+cryptography>=41.0        # rsa_encrypt_decrypt.py  (2048-bit OAEP RSA; hard dep for that file)
+
+# --- AES S-box analysis & ECB visualisation ----------------------------------
+numpy>=1.26               # aes_ecb_pattern_leak.py
+scipy>=1.11               # aes_sbox_analysis.py    (chi-square uniformity test)
+matplotlib>=3.8           # aes_ecb_pattern_leak.py (writes ecb_pattern.png)
+
+# --- Caesar ML experiments ---------------------------------------------------
+scikit-learn>=1.4         # caesar_random_forest.py, caesar_ngram_model.py
+
+# --- Bloom filter demo -------------------------------------------------------
+mmh3>=4.1                 # bloom_filter.py
+bitarray>=2.9             # bloom_filter.py

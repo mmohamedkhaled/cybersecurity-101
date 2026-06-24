@@ -1,0 +1,74 @@
+name: Bug report
+description: Report a correctness bug, crash, or logic error in a script
+title: "[bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Cybersecurity 101!
+
+        **Security-sensitive problems must NOT be reported here.** Please use a
+        private [Security Advisory](../../security/advisories/new) instead — see
+        [SECURITY.md](../../blob/main/SECURITY.md).
+
+        Remember this is *educational* code: textbook RSA, ECB mode, small key
+        sizes, single-iteration hashes, etc. are **intentional** demonstrations,
+        not bugs. Check [SECURITY.md → Scope](../../blob/main/SECURITY.md#scope)
+        before filing.
+
+  - type: input
+    id: file
+    attributes:
+      label: Affected file
+      description: Which script is affected?
+      placeholder: "caesar_cipher.py"
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear and concise description of the incorrect result or crash.
+      placeholder: "Expected X, but got Y."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproducer
+    attributes:
+      label: Minimal reproducer
+      description: The exact command and input that trigger the bug.
+      render: shell
+      placeholder: "python3 caesar_cipher.py"
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs. actual
+      description: What you expected, and what actually happened.
+      placeholder: |
+        Expected: ...
+        Actual:   ...
+    validations:
+      required: true
+
+  - type: input
+    id: python-version
+    attributes:
+      label: Python version
+      description: Output of `python3 --version`.
+      placeholder: "Python 3.12.3"
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Anything else relevant (installed optional deps, OS, logs).
+    validations:
+      required: false

@@ -1,0 +1,34 @@
+name: Feature request
+description: Suggest a new script, improvement, or enhancement
+title: "[feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the suggestion! Keep in mind this repo favours **readable
+        teaching examples** — see [CONTRIBUTING.md](../../blob/main/CONTRIBUTING.md).
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What concept is hard to learn or missing from the repo?
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: Describe the script or change you'd like. Include which learning level it fits (Level 1–3 in the README).
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any other approaches you thought about.
+    validations:
+      required: false

@@ -1,0 +1,78 @@
+# Project metadata and tooling configuration for Cybersecurity 101.
+#
+# This repository is a flat collection of self-contained scripts (run each with
+# `python3 <file>.py`); it is not built/installed as a package, so there is no
+# [build-system]. The [project] table documents the repo; [tool.*] configures
+# ruff and mypy, the single source of truth for lint/type settings used by CI.
+
+[project]
+name = "cybersecurity-101"
+version = "1.0.0"
+description = "Small, self-contained Python implementations of cryptography, error-detection, number-theory and networking maths."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "mmohamedkhaled" }]
+keywords = ["cryptography", "security", "aes", "rsa", "checksum", "crc", "learning", "education"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security :: Cryptography",
+]
+
+[project.urls]
+Homepage = "https://github.com/mmohamedkhaled/cybersecurity-101"
+Issues = "https://github.com/mmohamedkhaled/cybersecurity-101/issues"
+
+# Optional runtime dependencies live in requirements.txt and are installed on
+# demand; they are intentionally NOT pinned as hard [project.dependencies] so a
+# minimal `git clone` needs nothing but the standard library.
+
+# ---------------------------------------------------------------------------
+# Ruff: linter + formatter
+# ---------------------------------------------------------------------------
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+extend-exclude = ["ecb_pattern.png", ".venv"]
+
+[tool.ruff.lint]
+# E/W  pycodestyle errors + warnings
+# F    pyflakes (unused imports, undefined names, ...)
+# I    isort (import sorting)
+# UP   pyupgrade (modern syntax: builtin generics, X | None)
+# B    flake8-bugbear (likely bugs)
+# C4   flake8-comprehensions
+# SIM  flake8-simplify
+select = ["E", "F", "W", "I", "UP", "B", "C4", "SIM"]
+ignore = [
+    "E501",   # line length is handled by the formatter, not the linter
+    "SIM110", # would rewrite explicit pedagogical loops (e.g. is_prime) as all(...)
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Test/demo harnesses intentionally use broad asserts and magic numbers.
+"test_suite.py" = ["S101"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+# ---------------------------------------------------------------------------
+# Mypy: static type checking (pragmatic; educational code, optional deps)
+# ---------------------------------------------------------------------------
+[tool.mypy]
+# 3.12 (not 3.10): the installed third-party stubs (e.g. numpy 2.x) use 3.12
+# `type` statements. Syntax-floor compatibility for 3.10 is enforced by ruff's
+# target-version = "py310" plus the 3.10 runtime test job in CI.
+python_version = "3.12"
+ignore_missing_imports = true   # optional third-party deps (Crypto, sklearn, ...)
+check_untyped_defs = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+exclude = ["ecb_pattern.png"]
