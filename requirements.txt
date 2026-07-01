@@ -24,5 +24,5 @@ matplotlib>=3.8           # aes_ecb_pattern_leak.py (writes ecb_pattern.png)
 scikit-learn>=1.7.2         # caesar_random_forest.py, caesar_ngram_model.py
 
 # --- Bloom filter demo -------------------------------------------------------
-mmh3>=4.1                 # bloom_filter.py
+mmh3>=5.2.1                 # bloom_filter.py
 bitarray>=2.9             # bloom_filter.py
