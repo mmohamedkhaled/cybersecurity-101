@@ -25,4 +25,4 @@ scikit-learn>=1.7.2         # caesar_random_forest.py, caesar_ngram_model.py
 
 # --- Bloom filter demo -------------------------------------------------------
 mmh3>=5.2.1                 # bloom_filter.py
-bitarray>=3.8.2             # bloom_filter.py
+bitarray>=3.9.1             # bloom_filter.py
